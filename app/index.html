@@ -41,9 +41,8 @@
               Australian Company Number Checker
             </h2>
             <form
-              [formGroup]="numberForm"
-              (ngSubmit)="onSubmit(numberForm.value)"
               class="d-flex flex-column align-items-center"
+              ng-submit="onSubmit(acnNumber)"
             >
               <label for="number">
                 Enter Australian Company Number (ACN)
@@ -57,11 +56,7 @@
                 required
               />
 
-              <button
-                id="btn-check"
-                class="btn btn-primary m-2"
-                ng-click="onSubmit(acnNumber)"
-              >
+              <button type="submit" id="btn-check" class="btn btn-primary m-2">
                 Check Number
               </button>
               <div
