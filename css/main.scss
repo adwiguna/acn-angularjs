@@ -1,0 +1,21 @@
+body {
+  background-color: #edf2f9 !important;
+  min-height: 100vh;
+}
+
+.acn-page {
+  .number-form {
+    color: #007bff;
+    border: none;
+    border-bottom: 1.5px solid #777777;
+    font-size: 2rem;
+    background: transparent;
+    &:focus {
+      box-shadow: none;
+      border: none;
+      border-bottom: 1.5px solid #007bff;
+      outline: 0 !important;
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    }
+  }
+}
