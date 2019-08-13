@@ -6,7 +6,7 @@ acnChecker.controller("acn-ctrl", function($scope, $timeout) {
   $scope.message = "";
   $scope.isValid = null;
 
-  acnCheck = function(acn = "001 000 004") {
+  $scope.acnCheck = function(acn = "") {
     const regex = new RegExp(/^([0-9]{9})$/g);
     const regexASIC = new RegExp(/^((([0-9]{3})\s){2}[0-9]{3})$/g);
 
@@ -39,7 +39,7 @@ acnChecker.controller("acn-ctrl", function($scope, $timeout) {
   };
 
   $scope.onSubmit = function(acn) {
-    let result = acnCheck(acn);
+    let result = $scope.acnCheck(acn);
     $scope.isShown = true;
     $scope.message = result.message;
     $scope.isValid = result.valid;
