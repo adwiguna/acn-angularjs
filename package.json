@@ -9,16 +9,21 @@
     "serve": "^11.1.0",
     "karma": "^4.2.0"
   },
-  "devDependencies": {
-    "node-sass": "^4.12.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://adwiguna@bitbucket.office.dgitsystems.com/scm/ibx/anggun-acn-angularjs.git"
   },
+  "scripts": {
+    "test": "karma start app/js/test/karma.conf.js",
+    "start": "serve app"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.8.8",
+    "jasmine": "^3.4.0",
+    "karma": "^4.2.0",
+    "serve": "^11.1.0",
+    "node-sass": "^4.12.0"
+  }
 }
