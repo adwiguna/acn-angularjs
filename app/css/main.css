@@ -1,18 +1,17 @@
 body {
   background-color: #edf2f9 !important;
-  min-height: 100vh;
-}
+  min-height: 100vh; }
+
 .acn-page .number-form {
   color: #007bff;
   border: none;
   border-bottom: 1.5px solid #777777;
   font-size: 2rem;
-  background: transparent;
-}
+  background: transparent; }
+
 .acn-page .number-form:focus {
   box-shadow: none;
   border: none;
   border-bottom: 1.5px solid #007bff;
   outline: 0 !important;
-  box-shadow: 0 0 0 0 transparent !important;
-}
+  box-shadow: 0 0 0 0 transparent !important; }

@@ -15,7 +15,9 @@
   },
   "scripts": {
     "test": "karma start app/js/test/karma.conf.js",
-    "start": "serve app"
+    "start": "serve app",
+    "watch-scss": "node-sass -wo app/css app/css",
+    "dev": "npm start & npm run watch-scss"
   },
   "author": "",
   "license": "ISC",

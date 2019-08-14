@@ -6,15 +6,14 @@ acnChecker.controller("acn-ctrl", function($scope, $timeout) {
   $scope.message = "";
   $scope.isValid = null;
 
-  $scope.acnCheck = function(acn = "") {
-    const regex = new RegExp(/^([0-9]{9})$/g);
+  $scope.acnCheck = function(givenACN = "") {
+    const regexNumber = new RegExp(/^([0-9]{9})$/g);
     const regexASIC = new RegExp(/^((([0-9]{3})\s){2}[0-9]{3})$/g);
 
-    // if no data input or doesn't match any format
-    if (!acn || (!acn.match(regexASIC) && !acn.match(regex)))
+    if (!givenACN || (!givenACN.match(regexASIC) && !givenACN.match(regexNumber)))
       return { valid: false, message: "Given ACN is not correct format!" };
 
-    let inputNumber = acn.replace(/\s/g, "");
+    let inputNumber = givenACN.replace(/\s/g, "");
     let productSum = 0;
     for (let i = 0; i < inputNumber.length - 1; i++) {
       productSum += +inputNumber[i] * (inputNumber.length - i - 1);
@@ -38,14 +37,17 @@ acnChecker.controller("acn-ctrl", function($scope, $timeout) {
     }
   };
 
-  $scope.onSubmit = function(acn) {
-    let result = $scope.acnCheck(acn);
+  let messageTimeOut = null
+  $scope.onSubmit = function(inputACN) {
+    let result = $scope.acnCheck(inputACN);
     $scope.isShown = true;
     $scope.message = result.message;
     $scope.isValid = result.valid;
 
-    $timeout(() => {
+    $timeout.cancel(messageTimeOut)
+    timeout = $timeout(() => {
       $scope.isShown = false;
     }, 3000);
+    return null;
   };
 });
