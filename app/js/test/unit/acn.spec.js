@@ -24,8 +24,8 @@ describe("Testing AngularJS test suite", function() {
     ];
     function testToBeTruthy(input) {
       it(`${input} should be valid ACN`, function() {
-        expect(scope.acnCheck).toBeDefined();
-        expect(scope.acnCheck(input).valid).toBeTruthy();
+        expect(scope.checkACN).toBeDefined();
+        expect(scope.checkACN(input).valid).toBeTruthy();
       });
     }
     for (let i = 0; i < truthyDatas.length; i++) {
@@ -36,8 +36,8 @@ describe("Testing AngularJS test suite", function() {
     const falsyDatas = ["003 999 987", "004249982"];
     function testToBeFalsy(input) {
       it(`${input} should be formatted correctly but not a valid ACN`, function() {
-        expect(scope.acnCheck).toBeDefined();
-        expect(scope.acnCheck(input).valid).toBeFalsy();
+        expect(scope.checkACN).toBeDefined();
+        expect(scope.checkACN(input).valid).toBeFalsy();
       });
     }
     for (let i = 0; i < falsyDatas.length; i++) {
@@ -48,9 +48,9 @@ describe("Testing AngularJS test suite", function() {
     const incorrectFormatDatas = ["005 749987", "abc def ghi", "005749 abc"];
     function testIncorrectFormat(input) {
       it(`${input} should not be correct ACN format`, function() {
-        expect(scope.acnCheck).toBeDefined();
-        expect(scope.acnCheck(input).valid).toBeFalsy();
-        expect(scope.acnCheck(input).message).toContain(
+        expect(scope.checkACN).toBeDefined();
+        expect(scope.checkACN(input).valid).toBeFalsy();
+        expect(scope.checkACN(input).message).toContain(
           "Given ACN is not correct format"
         );
       });
